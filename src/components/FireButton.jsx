@@ -30,7 +30,7 @@ const FireButton = ({ Name }) => {
             setCursorPosition({ x: 0 });
             setGradientOpacity({ left: 1, right: 0 });
             clearTimeout(timeoutId);
-        }, 2000);
+        },5000);
     };
 
     return (
