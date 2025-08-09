@@ -1,12 +1,12 @@
 
-import Sky from '@/components/Sky'
+import { Sky } from '@/components/Sky'
 import React from 'react'
 
 
 const page = () => {
   return (
     <div className='h-screen'>
-   <Sky NumberOfStars={200}/>
+      <Sky NumberOfStars={200} />
     </div>
   )
 }
