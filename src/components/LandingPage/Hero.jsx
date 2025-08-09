@@ -1,5 +1,6 @@
 "use client";
 import FireButton from "@/components/FireButton";
+import Image from "next/image";
 import React from "react";
 
 const Hero = () => {
@@ -25,10 +26,13 @@ const Hero = () => {
 
             {/* Image Content */}
             <div className="w-full max-w-3xl">
-                <img
+                <Image
                     src="/glass1.png"
                     alt="Business Growth"
+                    width={1200}
+                    height={800}
                     className="w-full rounded-lg shadow-lg"
+                    priority
                 />
             </div>
         </section>

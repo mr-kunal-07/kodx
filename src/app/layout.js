@@ -37,22 +37,25 @@ export default function RootLayout({ children }) {
         {/* Responsive Glow */}
         <div
           className="
-      absolute 
-      top-[40%] 
-      left-1/2 
-      -translate-x-1/2 
-      w-full h-[1000px] 
-       md:h-[1800px] 
-      l lg:h-[2200px] 
-      bg-[#AA14F0] 
-      rounded-full 
-      blur-[300px] 
-      md:blur-[500px] 
-      lg:blur-[450px] 
-      opacity-40
-      pointer-events-none
-    "
+    absolute 
+    top-[40%] 
+    left-1/2 
+    -translate-x-1/2 
+    w-full 
+    h-[1000px] 
+    md:h-[1800px] 
+    lg:h-[2200px] 
+    bg-[#AA14F0]/90
+    rounded-full 
+    blur-[300px] 
+    md:blur-[500px] 
+    lg:blur-[450px] 
+    pointer-events-none
+    opacity-50
+    md:opacity-25
+  "
         ></div>
+
 
         <Navbar />
 

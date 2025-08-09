@@ -61,7 +61,7 @@ export default function Navbar() {
                         p-2 rounded-full border border-zinc-700
                         hover:shadow-xl hover:ring-1 hover:ring-zinc-600
                         duration-300 overflow-hidden
-                        w-30
+                        w-32
                         "
                     >
 
