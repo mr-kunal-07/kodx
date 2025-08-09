@@ -35,8 +35,7 @@ const FireButton = ({ Name }) => {
 
     return (
         <button
-            className="relative rounded-full flex items-center w-full sm:max-w-xs md:max-w-sm lg:max-w-md text-black"
-            onMouseMove={handleMouseMove}
+            className="relative rounded-full flex items-center w-50 md:w-65 sm:max-w-sm md:max-w-sm lg:max-w-md text-black"            onMouseMove={handleMouseMove}
             onMouseLeave={handleMouseLeave}
         >
             {/* Left gradient */}
