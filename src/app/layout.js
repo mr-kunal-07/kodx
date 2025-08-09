@@ -17,10 +17,15 @@ export const metadata = {
   title: "KodxMedia",
   description:
     "KodxMedia builds modern websites, SaaS platforms, and scalable digital solutions with cutting-edge technologies like Next.js, AWS, and AI.",
-  viewport: "width=device-width, initial-scale=1",
   icons: {
     icon: "/logo2.webp",
   },
+};
+
+
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
 };
 
 export default function RootLayout({ children }) {
