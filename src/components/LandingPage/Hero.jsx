@@ -2,14 +2,14 @@
 import FireButton from "@/components/FireButton";
 import Image from "next/image";
 import React from "react";
+import HeroImages from "./HeroImages";
 
 const Hero = () => {
     return (
-        <section className="min-h-screen w-full flex flex-col justify-center items-center px-6 sm:px-8 lg:px-12 text-center gap-8 py-20">
-
-            {/* Text Content */}
-            <div className="max-w-5xl">
-                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
+        <section className="min-h-screen w-full flex flex-col justify-center items-center px-6 sm:px-8 lg:px-12 text-center gap-8 ">
+           {/* Text Content */}
+            <div className="max-w-6xl my-20">
+                <h1 className="text-4xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
                     All you need to grow your <br className="hidden sm:block" />
                     Business in just KODX
                 </h1>
@@ -25,16 +25,9 @@ const Hero = () => {
             </div>
 
             {/* Image Content */}
-            <div className="w-full max-w-3xl">
-                <Image
-                    src="/glass1.png"
-                    alt="Business Growth"
-                    width={1200}
-                    height={800}
-                    className="w-full rounded-lg shadow-lg"
-                    priority
-                />
-            </div>
+            <HeroImages />
+
+
         </section>
     );
 };
