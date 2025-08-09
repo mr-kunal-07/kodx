@@ -34,8 +34,8 @@ const ShootingStar = () => {
 
             setTimeout(() => {
                 setIsVisible(false);
-            }, 1000);
-        }, 2000);
+            }, 500);
+        }, 3000);
 
         return () => clearInterval(interval);
     }, [size]);
