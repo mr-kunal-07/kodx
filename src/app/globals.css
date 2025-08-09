@@ -24,3 +24,20 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+@keyframes shooting {
+  0% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(500px) translateY(-500px);
+    opacity: 0;
+  }
+}
+
+.animate-shooting {
+  animation: shooting 1s forwards; /* Adjust duration as needed */
+}
