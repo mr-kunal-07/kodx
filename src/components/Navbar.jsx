@@ -35,8 +35,18 @@ export default function Navbar() {
                             </Link>
                         </li>
                         <li>
+                            <Link href="/stack" className="hover:text-white transition-colors">
+                                Stack
+                            </Link>
+                        </li>
+                        <li>
                             <Link href="/services" className="hover:text-white transition-colors">
                                 Services
+                            </Link>
+                        </li>
+                        <li>
+                            <Link href="/projects" className="hover:text-white transition-colors">
+                                Projects
                             </Link>
                         </li>
                     </ul>
@@ -51,6 +61,7 @@ export default function Navbar() {
                         p-2 rounded-full border border-zinc-700
                         hover:shadow-xl hover:ring-1 hover:ring-zinc-600
                         duration-300 overflow-hidden
+                        w-30
                         "
                     >
 
