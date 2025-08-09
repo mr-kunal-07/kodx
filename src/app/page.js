@@ -1,5 +1,6 @@
 
-import { Sky } from '@/components/Sky'
+
+import Sky from '../components/Sky'
 import React from 'react'
 
 
