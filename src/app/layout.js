@@ -1,7 +1,6 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
-import Sky from "@/components/Sky";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -33,9 +32,8 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased relative min-h-screen bg-[#050012] overflow-hidden`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased relative min-h-screen bg-[#050012] `}
       >
-        <Sky NumberOfStars={200} />
         {/* Responsive Glow */}
         <div
           className="
@@ -43,10 +41,10 @@ export default function RootLayout({ children }) {
       top-[40%] 
       left-1/2 
       -translate-x-1/2 
-      w-[300px] h-[1000px] 
-      md:w-[500px] md:h-[1800px] 
-      lg:w-[700px] lg:h-[2200px] 
-      bg-[#ae00ff] 
+      w-full h-[1000px] 
+       md:h-[1800px] 
+      l lg:h-[2200px] 
+      bg-[#AA14F0] 
       rounded-full 
       blur-[300px] 
       md:blur-[500px] 
