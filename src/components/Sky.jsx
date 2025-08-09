@@ -24,7 +24,7 @@ const Sky = ({ NumberOfStars }) => {
     }, [NumberOfStars]);
 
     return (
-        <div className="relative h-full w-full">
+        <div className="absolute h-screen w-full">
             {stars}
             <ShootingStar />
         </div>
