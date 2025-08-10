@@ -2,7 +2,7 @@ import React from 'react'
 
 const page = () => {
   return (
-    <div>Stack</div>
+    <div className='w-full min-h-screen'>Stack</div>
   )
 }
 

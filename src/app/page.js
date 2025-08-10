@@ -1,15 +1,17 @@
-import DashboardSection from '@/components/LandingPage/DashboardSection'
 import Hero from '@/components/LandingPage/Hero'
+import StackIcons from '@/components/LandingPage/StackIcons'
 import Testimonials from '@/components/LandingPage/Testimonials'
+import WhatWeDo from '@/components/LandingPage/WhatWeDo'
 import Sky from '@/components/Sky'
 import React from 'react'
 
 const page = () => {
   return (
-    <div>
+    <div >
       <Sky NumberOfStars={200}/>
       <Hero/>
-      <DashboardSection/>
+      <WhatWeDo/>
+      <StackIcons />
       {/* <Testimonials/> */}
     </div>
   ) 
