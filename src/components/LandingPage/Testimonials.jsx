@@ -1,70 +1,70 @@
 "use client";
-
+import Image from "next/image";
 import React from "react";
-import { motion } from "framer-motion";
-
-const testimonials = [
-    {
-        quote:
-            "This service completely exceeded my expectations. The process was smooth, and the results were amazing!",
-        name: "John Doe",
-        title: "Founder, Example Co.",
-    },
-    {
-        quote:
-            "I’ve tried many solutions before, but this one stands out. Exceptional quality and fantastic support!",
-        name: "Jane Smith",
-        title: "Marketing Manager, Acme Inc.",
-    },
-    {
-        quote:
-            "Fast, reliable, and exactly what I needed. Highly recommend to anyone looking for top-notch service.",
-        name: "David Wilson",
-        title: "Entrepreneur",
-    },
-];
-
-const cardVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: (i) => ({
-        opacity: 1,
-        y: 0,
-        transition: { delay: i * 0.3, duration: 0.5, ease: "easeOut" },
-    }),
-    hover: {
-        scale: 1.05,
-        boxShadow: "0 10px 20px rgba(255, 255, 255, 0.3)",
-        transition: { duration: 0.3 },
-    },
-};
 
 const Testimonials = () => {
+    const testimonials = [
+        {
+            name: "Ritika Mehra",
+            title: "Founder – Urban Threads",
+            location: "Mumbai, India",
+            role: "Urban Threads – Branding & Identity Design",
+            text: "The branding Kshitij's team created gave us a fresh identity that truly connects with our audience. Our Instagram engagement doubled in just 3 months, and customers now instantly recognize our brand.",
+            img:"/man1.jpg"
+        },
+        {
+            name: "James Turner",
+            title: "Director – FinWise",
+            location: "London, UK",
+            role: "FinWise – Website Design & Development",
+            text: "Our old website was dragging us down, but the redesign transformed how clients see us. The booking system alone has made our workflow so much smoother, and our inquiries are up by more than half.",
+            img: "/man2.jpg"
+
+        },
+    ];
+
     return (
-        <section
-            className="min-h-screen top-0 flex items-center justify-center bg-cover bg-center px-6"
-        >
-            <div className="max-w-6xl mx-auto text-center">
-                <h2 className="text-3xl font-bold text-white mb-8 drop-shadow-lg">
-                    What Our Clients Say
-                </h2>
-                <div className="grid gap-8 md:grid-cols-3">
-                    {testimonials.map((t, index) => (
-                        <motion.div
-                            key={index}
-                            custom={index}
-                            initial="hidden"
-                            animate="visible"
-                            whileHover="hover"
-                            variants={cardVariants}
-                            className="backdrop-blur-md bg-white/10 border border-white/20 rounded-2xl p-6 shadow-lg cursor-pointer"
-                        >
-                            <p className="text-white/90 italic mb-4">"{t.quote}"</p>
-                            <h4 className="font-semibold text-white">{t.name}</h4>
-                            <span className="text-sm text-white/70">{t.title}</span>
-                        </motion.div>
-                    ))}
-                </div>
+        <section className="w-full max-w-7xl mx-auto pt-10 px-6 sm:px-10 lg:px-20 text-white">
+            {/* Heading */}
+            <div className="text-center mb-8">
+                <h2 className="text-3xl sm:text-4xl font-bold">What Our Clients Say</h2>
+                <p className="text-sm text-gray-300 mt-2">
+                    Our clients’ success stories speak for themselves.
+                </p>
             </div>
+
+            {/* Testimonials Grid */}
+            <div className="grid md:grid-cols-2 gap-8">
+                {testimonials.map((item, index) => (
+                    <div
+                        key={index}
+                        className="relative rounded-2xl p-6 backdrop-blur-md bg-white/10 border border-white/20 shadow-lg flex flex-col items-center text-center transition-transform hover:scale-[1.02]"
+                    >
+                        {/* Circular Avatar Placeholder */}
+                        <div className="w-16 h-16 rounded-full overflow-hidden border-2 mb-4">
+                            <Image
+                                src={item.img}
+                                alt="Profile Picture"
+                                width={64}
+                                height={64}
+                                className="object-cover w-full h-full"
+                            />
+                        </div>
+
+                        {/* Title */}
+                        <h3 className="text-lg font-semibold">{item.role}</h3>
+
+                        {/* Text */}
+                        <p className="text-gray-200 text-sm mt-2 mb-4">{item.text}</p>
+
+                        {/* Author */}
+                        <p className="text-sm font-semibold text-white/90">
+                            {item.name}, {item.title}, ({item.location})
+                        </p>
+                    </div>
+                ))}
+            </div>
+           
         </section>
     );
 };

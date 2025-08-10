@@ -1,3 +1,4 @@
+import Contact from '@/components/LandingPage/Contact'
 import Hero from '@/components/LandingPage/Hero'
 import StackIcons from '@/components/LandingPage/StackIcons'
 import Testimonials from '@/components/LandingPage/Testimonials'
@@ -12,7 +13,8 @@ const page = () => {
       <Hero/>
       <WhatWeDo/>
       <StackIcons />
-      {/* <Testimonials/> */}
+      <Testimonials/>
+      <Contact />
     </div>
   ) 
 }
