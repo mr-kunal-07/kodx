@@ -1,11 +1,9 @@
 @import "tailwindcss";
 
-
 :root {
   --background: #ffffff;
   --foreground: #171717;
 }
-
 
 @theme inline {
   --color-background: var(--background);
@@ -44,10 +42,9 @@ body {
   animation: shooting 1s forwards; /* Adjust duration as needed */
 }
 
-
-
 @keyframes float {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0);
   }
   50% {
@@ -59,8 +56,6 @@ body {
   animation: float 4s ease-in-out infinite;
 }
 
-
-
 .glass {
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.1);
@@ -68,6 +63,12 @@ body {
   -webkit-backdrop-filter: blur(12px);
 }
 
-
-
-
+body {
+  margin: 0;
+  background: radial-gradient(
+    circle at center,
+    rgba(47, 5, 75, 1) 0%,
+    rgba(5, 0, 18, 1) 20%
+  );
+  min-height: auto;
+}

@@ -71,25 +71,8 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased relative min-h-screen w-full bg-[#0f0012]`}
+        className={`${geistSans.variable} ${geistMono.variable}`}
       >
-        {/* Glow Layer */}
-        <div
-          className="
-            min-h-screen w-full
-            absolute 
-            top-[50%]
-            left-[50%]
-            -translate-x-1/2 
-            -translate-y-1/2
-            bg-[#AA14F0]/50
-            rounded-full 
-            blur-[350px]  
-            md:blur-[500px]
-            lg:blur-[700px] 
-            opacity-60
-          "
-        />
         <Navbar />
         <main className="relative z-10">{children}</main>
         <Footer />
