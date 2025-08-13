@@ -19,10 +19,10 @@ const Hero = () => {
                     Microservices, and AWS Auto Scaling so you never have to rebuild again.
                 </p>
 
-                    <Link href="/services" className="mt-8 flex justify-center">
-                        <FireButton Name="Explore Services" />
-                    </Link>
-                </div>
+                <Link href="/services" className="mt-8 flex justify-center">
+                    <FireButton Name="Explore Services" />
+                </Link>
+            </div>
 
             {/* Image Content */}
             <HeroImages />

@@ -56,7 +56,6 @@ export const metadata = {
       "KodxMedia helps startups build powerful, scalable websites, mobile apps, SaaS platforms, AI tools, and blockchain solutions.",
     images: ["/default-og-image.jpg"],
   },
-  themeColor: "#171717",
   alternates: {
     canonical: "https://kodxmedia.site",
   },
@@ -65,6 +64,7 @@ export const metadata = {
 export const viewport = {
   width: "device-width",
   initialScale: 1,
+  themeColor: "#171717",
 };
 
 export default function RootLayout({ children }) {
@@ -73,6 +73,7 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable}`}
       >
+
         <Navbar />
         <main className="relative z-10">{children}</main>
         <Footer />
