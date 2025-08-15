@@ -3,28 +3,27 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { motion } from 'framer-motion';
-import { ArrowRight, CheckCircle, Code2, Lightbulb, Rocket, Sparkles, Shield } from 'lucide-react';
+import { ArrowRight, CheckCircle, Code2, Lightbulb, Rocket, Sparkles } from 'lucide-react';
 
 const services = [
   {
     title: 'Product Strategy',
     icon: '/icons/GraphQL.webp',
-    desc: 'Align business goals with user needs through data‑driven strategy and roadmapping.',
-    highlights: ['Market & user research', 'North‑star metrics', 'Roadmap & milestones'],
+    desc: 'Align business goals with user needs through data-driven strategy and roadmapping.',
+    highlights: ['Market & user research', 'North-star metrics', 'Roadmap & milestones'],
     href: '/contact'
   },
   {
     title: 'UI/UX Design',
     icon: '/icons/figma.svg',
     desc: 'Design delightful, accessible experiences with scalable design systems.',
-    highlights: ['Wireframes to hi‑fi', 'Design systems', 'Interactive prototypes'],
+    highlights: ['Wireframes to hi-fi', 'Design systems', 'Interactive prototypes'],
     href: '/contact'
   },
   {
     title: 'Web Development',
     icon: '/icons/Nextjs.svg',
-    desc: 'High‑performance web apps using React, Next.js, and TypeScript.',
+    desc: 'High-performance web apps using React, Next.js, and TypeScript.',
     highlights: ['SSR/SSG & SEO', 'TypeScript & testing', 'Analytics & observability'],
     href: '/contact'
   },
@@ -46,26 +45,15 @@ const services = [
     title: 'Brand & Creative',
     icon: '/icons/Canva.webp',
     desc: 'Cohesive brand systems, visuals, and content that amplify your story.',
-    highlights: ['Identity & guidelines', 'Social creatives', 'Motion & micro‑interactions'],
+    highlights: ['Identity & guidelines', 'Social creatives', 'Motion & micro-interactions'],
     href: '/contact'
   }
 ];
 
-const containerVariants = {
-  hidden: { opacity: 0, y: 12 },
-  show: (i) => ({ opacity: 1, y: 0, transition: { delay: i * 0.05 } })
-};
-
-function ServiceCard({ service, index }) {
+function ServiceCard({ service }) {
   return (
-    <motion.article
-      custom={index}
-      initial="hidden"
-      whileInView="show"
-      viewport={{ once: true, amount: 0.2 }}
-      variants={containerVariants}
-      whileHover={{ y: -6 }}
-      className="group relative overflow-hidden p-6 rounded-2xl border border-white/10 bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-xl transition"
+    <article
+      className="group relative overflow-hidden p-6 rounded-2xl border border-white/10 bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-xl transition-transform duration-300 hover:-translate-y-1"
       aria-label={service.title}
     >
       <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 via-transparent to-blue-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -91,11 +79,18 @@ function ServiceCard({ service, index }) {
         </div>
       </div>
       <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-purple-400 to-blue-400 group-hover:w-full transition-all duration-300" />
-    </motion.article>
+    </article>
   );
 }
 
 export default function Page() {
+  const steps = [
+    { icon: Lightbulb, title: 'Discover', desc: 'Deep dive into goals, users, and constraints.' },
+    { icon: Sparkles, title: 'Design', desc: 'Iterate quickly with prototypes and feedback.' },
+    { icon: Code2, title: 'Develop', desc: 'Build scalable, well-tested, observable systems.' },
+    { icon: Rocket, title: 'Launch', desc: 'Ship, measure, and continuously improve.' }
+  ];
+
   return (
     <div className="w-full min-h-screen">
       <section className="w-full py-16 px-4 sm:px-8 relative overflow-hidden">
@@ -114,8 +109,8 @@ export default function Page() {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
-            {services.map((s, i) => (
-              <ServiceCard key={s.title} service={s} index={i} />
+            {services.map((s) => (
+              <ServiceCard key={s.title} service={s} />
             ))}
           </div>
         </div>
@@ -125,36 +120,25 @@ export default function Page() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-10">
             <h2 className="text-2xl sm:text-3xl font-bold text-white mb-2">Our Process</h2>
-            <p className="text-white/70 text-sm sm:text-base">A transparent, outcomes‑driven approach that keeps you in the loop.</p>
+            <p className="text-white/70 text-sm sm:text-base">A transparent, outcomes-driven approach that keeps you in the loop.</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4 sm:gap-6">
-            {[
-              { icon: Lightbulb, title: 'Discover', desc: 'Deep dive into goals, users, and constraints.' },
-              { icon: Sparkles, title: 'Design', desc: 'Iterate quickly with prototypes and feedback.' },
-              { icon: Code2, title: 'Develop', desc: 'Build scalable, well‑tested, observable systems.' },
-              { icon: Rocket, title: 'Launch', desc: 'Ship, measure, and continuously improve.' }
-            ].map((step, i) => (
-              <motion.div
+            {steps.map((step) => (
+              <div
                 key={step.title}
-                custom={i}
-                initial="hidden"
-                whileInView="show"
-                viewport={{ once: true, amount: 0.2 }}
-                variants={containerVariants}
-                className="group relative overflow-hidden p-5 rounded-xl border border-white/10 bg-white/5 backdrop-blur-md"
+                className="group relative overflow-hidden p-5 rounded-xl border border-white/10 bg-white/5 backdrop-blur-md transition-transform duration-300 hover:-translate-y-1"
               >
                 <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 via-transparent to-blue-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 <step.icon className="w-6 h-6 text-purple-300 mb-3" />
                 <h3 className="text-white font-semibold mb-1">{step.title}</h3>
                 <p className="text-white/70 text-sm">{step.desc}</p>
                 <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-purple-400 to-blue-400 group-hover:w-full transition-all duration-300" />
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
       </section>
-
     </div>
   );
 }

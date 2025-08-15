@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import { ChevronRight, MessageCircle, Send } from "lucide-react";
+import { ChevronRight, Send } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
 
 const Contact = () => {
@@ -13,8 +13,11 @@ const Contact = () => {
         message: ""
     });
 
+    const [status, setStatus] = useState({ loading: false, success: null, error: null });
+
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
+        if (status.error) setStatus({ ...status, error: null }); // clear errors on typing
     };
 
     const sendViaWhatsApp = () => {
@@ -32,15 +35,36 @@ ${formData.message}
         `.trim();
 
         const whatsappLink = `https://wa.me/9920655685?text=${encodeURIComponent(message)}`;
-        window.open(whatsappLink, '_blank');
+        window.open(whatsappLink, "_blank");
     };
 
+    const handleSubmit = async () => {
+        setStatus({ loading: true, success: null, error: null });
+
+        try {
+            const res = await fetch("/api/send-email", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(formData)
+            });
+
+            const data = await res.json();
+            if (data.success) {
+                setStatus({ loading: false, success: "✅ Message sent successfully!", error: null });
+                setFormData({ name: "", email: "", phone: "", budget: "", requirement: "", message: "" });
+            } else {
+                throw new Error(data.error || "Failed to send message");
+            }
+        } catch (err) {
+            setStatus({ loading: false, success: null, error: err.message });
+        }
+    };
 
     const inputClasses =
         "w-full p-4 rounded-xl backdrop-blur-md bg-white/10 border border-white/20 text-white placeholder-white/60 focus:outline-none focus:border-purple-400 focus:ring-2 focus:ring-purple-400/20 transition-all duration-300 hover:bg-white/15";
 
-    const whatsappButtonClasses =
-        "w-full group relative flex items-center justify-center gap-3 text-white font-semibold px-6 py-4 rounded-2xl backdrop-blur-xl bg-emerald-400/10 border border-white/20 ring-1 ring-white/10 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.15)] hover:bg-emerald-400/15 hover:border-emerald-300/40 hover:shadow-lg hover:shadow-emerald-400/25 transition-all duration-300 overflow-hidden hover:scale-[1.02] active:scale-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-300/50 focus-visible:border-emerald-300/50";
+    const actionButtonClasses =
+        "w-full group relative flex items-center justify-center gap-3 text-white font-semibold px-6 py-4 rounded-2xl backdrop-blur-xl border border-white/20 ring-1 ring-white/10 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.15)] transition-all duration-300 overflow-hidden hover:scale-[1.02] active:scale-100 focus-visible:outline-none";
 
     return (
         <section className="flex items-center justify-center p-4 sm:p-8 min-h-screen">
@@ -152,40 +176,32 @@ ${formData.message}
                     </div>
 
                     {/* Action Buttons */}
-                    <div className="flex flex-col gap-4 pt-4">
+                    <div className="flex flex-col sm:flex-row gap-4 pt-4">
+                        {/* Send Message Button */}
+                        <button
+                            type="button"
+                            onClick={handleSubmit}
+                            disabled={status.loading}
+                            className={`${actionButtonClasses} bg-purple-500/20 hover:bg-purple-500/30 hover:border-purple-300/40 hover:shadow-lg hover:shadow-purple-400/25`}
+                        >
+                            {status.loading ? "Sending..." : "Send Message"}
+                        </button>
+                        {/* WhatsApp Button */}
                         <button
                             type="button"
                             onClick={sendViaWhatsApp}
-                            className={whatsappButtonClasses}
+                            className={`${actionButtonClasses} bg-emerald-400/10 hover:bg-emerald-400/15 hover:border-emerald-300/40 hover:shadow-lg hover:shadow-emerald-400/25`}
                         >
-                            <span aria-hidden className="absolute inset-0 rounded-2xl p-px bg-gradient-to-r from-emerald-300/40 via-white/20 to-emerald-300/40 opacity-60 group-hover:opacity-90 transition-opacity duration-300" />
-                            <span aria-hidden className="pointer-events-none absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-12" />
-                            <span aria-hidden className="pointer-events-none absolute -inset-12 bg-[radial-gradient(circle_at_top_left,rgba(16,185,129,0.25),transparent_60%)] opacity-0 group-hover:opacity-100 blur-2xl transition-opacity duration-300" />
-                            <span aria-hidden className="absolute right-3 top-1/2 -translate-y-1/2 w-2 h-2 rounded-full bg-emerald-300/80 shadow-[0_0_12px_rgba(16,185,129,0.6)] animate-pulse" />
-                            <span className="relative z-10 flex items-center gap-3">
-                                <FaWhatsapp className="w-5 h-5" />
-                                Chat on WhatsApp
-                            </span>
+                            <FaWhatsapp className="w-5 h-5" />
+                            Chat on WhatsApp
                         </button>
-                    </div>
-                </div>
 
-                {/* Additional Info */}
-                <div className="mt-8 pt-6 border-t border-white/10">
-                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-center text-sm text-white/60">
-                        <div>
-                            <div className="font-semibold text-white/80">Response Time</div>
-                            <div>Within 24 hours</div>
-                        </div>
-                        <div>
-                            <div className="font-semibold text-white/80">Free Consultation</div>
-                            <div>30-minute call</div>
-                        </div>
-                        <div>
-                            <div className="font-semibold text-white/80">Project Types</div>
-                            <div>Web, Mobile, Design</div>
-                        </div>
+
                     </div>
+
+                    {/* Status Messages */}
+                    {status.success && <p className="mt-4 text-green-400 text-center">{status.success}</p>}
+                    {status.error && <p className="mt-4 text-red-400 text-center">{status.error}</p>}
                 </div>
             </div>
         </section>
