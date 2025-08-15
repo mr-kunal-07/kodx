@@ -83,7 +83,7 @@ export async function POST(req) {
         <p style="margin-top: 20px; font-size: 14px; color: #555;">
             Best Regards,<br>
             <strong>Kunal Jadhav</strong><br>
-            Founder & CEO – KodX Media
+            Founder & CTO – KodX Media
         </p>
         
         <!-- Footer -->
@@ -96,8 +96,11 @@ export async function POST(req) {
 
 
         // Send both emails
-        await transporter.sendMail(adminMailOptions);
-        await transporter.sendMail(clientMailOptions);
+        // Send both emails in parallel instead of sequentially using Promise.all
+        await Promise.all([
+            transporter.sendMail(adminMailOptions),
+            transporter.sendMail(clientMailOptions)
+        ]);
 
         return new Response(JSON.stringify({ success: true }), { status: 200 });
     } catch (error) {
