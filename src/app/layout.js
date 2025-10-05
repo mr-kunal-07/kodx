@@ -43,7 +43,7 @@ export const metadata = {
       "KodxMedia helps startups build powerful, scalable websites, mobile apps, SaaS platforms, AI tools, and blockchain solutions.",
     images: [
       {
-        url: "/default-og-image.jpg",
+        url: "/whiteLogo.png",
         width: 1200,
         height: 630,
         alt: "KodxMedia Services Preview",
@@ -54,8 +54,8 @@ export const metadata = {
     card: "summary_large_image",
     title: "KodxMedia | Startup-first Web & Mobile App Development Company",
     description:
-      "KodxMedia helps startups build powerful, scalable websites, mobile apps, SaaS platforms, AI tools, and blockchain solutions.",
-    images: ["/default-og-image.jpg"],
+      "KodxMedia helps startups build powerful, scalable websites, mobile apps, SaaS platforms, AI tools, and E-commerce solutions.",
+    images: ["/whiteLogo.png"],
   },
   alternates: {
     canonical: "https://kodxmedia.site",
@@ -78,7 +78,7 @@ export default function RootLayout({ children }) {
         <Navbar />
         <main className="relative z-10">
           {children}
-          <Analytics/>
+          <Analytics />
         </main>
         <Footer />
         <BottomBar />

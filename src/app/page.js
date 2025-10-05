@@ -8,16 +8,15 @@ import { memo } from 'react'
 
 const HomePage = memo(function HomePage() {
   return (
-    <>
+    <div className="">
       <Sky NumberOfStars={200} />
       <main className="relative z-10">
         <Hero />
         <WhatWeDo />
         <StackIcons />
-        <Testimonials />
         <Contact />
       </main>
-    </>
+    </div>
   )
 })
 

@@ -3,6 +3,7 @@
 import { ArrowRight, ChevronRight, Palette, Code2, Smartphone } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
+import ShineButton from "../ShineButton";
 
 const services = [
     {
@@ -36,9 +37,8 @@ function SocialCard({ name, user, icon }) {
     return (
         <Link
             href="#"
-            className="flex items-center gap-3 p-4 rounded-lg bg-white/5 border border-white/10 backdrop-blur-md
-            hover:border-purple-400/60 hover:shadow-[0_8px_30px_rgba(168,85,247,0.12)]
-            transition-all duration-300 group"
+            className="flex items-center gap-3 p-4 rounded-lg bg-white/5 border border-white/10
+            hover:border-purple-400/60 hover:shadow-lg transition-all duration-300 group"
         >
             <Image
                 src={icon}
@@ -59,17 +59,11 @@ function SocialCard({ name, user, icon }) {
 export default function WhatWeDo() {
     return (
         <section className="w-full py-10 px-4 sm:px-8 relative overflow-hidden">
-           
-
             <div className="max-w-7xl mx-auto relative z-10">
                 {/* Heading & Button */}
                 <div className="flex flex-col sm:flex-row items-center justify-between gap-8 mb-5 text-center sm:text-left">
                     <div className="space-y-4">
-                        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-500/10 border border-purple-400/20 text-purple-300 text-sm font-medium">
-                            <div className="w-2 h-2 bg-purple-400 rounded-full animate-pulse" />
-                            Our Services
-                        </div>
-                        <h2 className="text-4xl sm:text-6xl font-bold text-white leading-tight">
+                        <h2 className="text-4xl pt-4 sm:text-6xl font-bold text-white leading-tight">
                             What We{" "}
                             <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
                                 Do
@@ -80,19 +74,7 @@ export default function WhatWeDo() {
                             that help businesses grow, connect, and succeed — anywhere in the world.
                         </p>
                     </div>
-                    <Link
-                        href="/services"
-                        className="group relative flex items-center gap-2 text-white px-6 py-3 rounded-full border border-purple-400/50
-                        bg-gradient-to-r from-purple-500/20 to-blue-500/20 backdrop-blur-sm
-                        hover:shadow-[0_0_30px_rgba(168,85,247,0.6)] hover:ring-2 hover:ring-purple-300/50 
-                        transition-all duration-300 overflow-hidden transform hover:scale-105"
-                    >
-                        {/* Shine effect */}
-                        <div className="absolute h-[120px] w-12 bg-gradient-to-r from-white/10 via-white/50 -left-12 -rotate-45 blur-sm 
-                        group-hover:left-[150%] transition-all duration-700 group-hover:delay-200" />
-                        <span className="font-medium">See All Services</span>
-                        <ChevronRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
-                    </Link>
+                    <ShineButton href="/services" text="See All Services" icon={ArrowRight} />
                 </div>
 
                 {/* Desktop Cards */}
@@ -101,8 +83,8 @@ export default function WhatWeDo() {
                         <div
                             key={index}
                             className="group relative rounded-2xl border border-white/20 p-8 
-                            backdrop-blur-xl bg-gradient-to-br from-white/10 to-white/5 
-                            hover:shadow-[0_0_40px_rgba(168,85,247,0.3)] transition-all duration-500
+                            bg-gradient-to-br from-white/10 to-white/5 
+                            hover:shadow-lg transition-all duration-500
                             hover:border-purple-400/40 hover:scale-105 hover:-translate-y-2
                             min-h-[400px] flex flex-col"
                         >
@@ -123,18 +105,7 @@ export default function WhatWeDo() {
                                 <p className="text-gray-300 text-base leading-relaxed mb-8 flex-1">
                                     {service.desc}
                                 </p>
-                                <Link
-                                    href="/services"
-                                    className="group/btn relative flex items-center gap-2 text-white px-6 py-3 rounded-full border border-purple-400/50
-                                    bg-gradient-to-r from-purple-500/20 to-blue-500/20 backdrop-blur-sm
-                                    hover:shadow-[0_0_20px_rgba(168,85,247,0.6)] hover:ring-2 hover:ring-purple-300/50 
-                                    transition-all duration-300 overflow-hidden w-fit"
-                                >
-                                    <div className="absolute h-[100px] w-10 bg-gradient-to-r from-white/10 via-white/50 -left-10 -rotate-45 blur-sm 
-                                    group-hover/btn:left-[150%] transition-all duration-500 group-hover/btn:delay-200" />
-                                    {service.button}
-                                    <ArrowRight size={16} className="transition-transform group-hover/btn:translate-x-1" />
-                                </Link>
+                                <ShineButton href="/services" text={service.button} icon={ArrowRight} />
                             </div>
                         </div>
                     ))}

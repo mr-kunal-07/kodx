@@ -13,12 +13,11 @@ import {
   Target,
   ArrowRight,
   Star,
-  CheckCircle,
   TrendingUp,
-  Lightbulb,
   Shield,
   Rocket
 } from 'lucide-react';
+import Link from 'next/link';
 
 const About = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -38,123 +37,69 @@ const About = () => {
     {
       icon: <Globe className="w-8 h-8" />,
       title: "Web Development",
-      description: "Modern, responsive websites built with cutting-edge technologies",
-      features: ["React/Next.js", "Node.js", "Full-stack solutions"]
+      features: ["React/Next.js", "Node.js", "Full-stack"]
     },
     {
       icon: <Palette className="w-8 h-8" />,
       title: "UI/UX Design",
-      description: "Beautiful, intuitive designs that users love to interact with",
-      features: ["User-centered design", "Prototyping", "Design systems"]
+      features: ["User-centered", "Prototyping", "Design systems"]
     },
     {
       icon: <Smartphone className="w-8 h-8" />,
       title: "Mobile Development",
-      description: "Native and cross-platform mobile applications",
       features: ["React Native", "Flutter", "iOS/Android"]
     },
     {
       icon: <Zap className="w-8 h-8" />,
       title: "Digital Solutions",
-      description: "End-to-end digital transformation for businesses",
       features: ["E-commerce", "CMS", "API Integration"]
     }
   ];
 
-  const values = [
-    {
-      icon: <Target className="w-6 h-6" />,
-      title: "Innovation First",
-      description: "We stay ahead of the curve with the latest technologies and trends"
-    },
-    {
-      icon: <Heart className="w-6 h-6" />,
-      title: "Client-Centric",
-      description: "Your success is our success. We build lasting partnerships"
-    },
-    {
-      icon: <Shield className="w-6 h-6" />,
-      title: "Quality Assured",
-      description: "Every project meets our high standards for excellence"
-    },
-    {
-      icon: <Clock className="w-6 h-6" />,
-      title: "Timely Delivery",
-      description: "We respect deadlines and deliver projects on time, every time"
-    }
-  ];
-
   const timeline = [
-    {
-      year: "2019",
-      title: "Founded KodxMedia",
-      description: "Started with a vision to create exceptional digital experiences"
-    },
-    {
-      year: "2020",
-      title: "First 10 Clients",
-      description: "Built trust and delivered successful projects for early adopters"
-    },
-    {
-      year: "2021",
-      title: "Team Expansion",
-      description: "Grew our team and expanded service offerings"
-    },
-    {
-      year: "2022",
-      title: "100+ Projects",
-      description: "Reached a major milestone with 100+ completed projects"
-    },
-    {
-      year: "2023",
-      title: "Global Reach",
-      description: "Serving clients worldwide with innovative solutions"
-    },
-    {
-      year: "2024",
-      title: "Future Ready",
-      description: "Leading the way in next-generation digital solutions"
-    }
+    { year: "2019", title: "Founded" },
+    { year: "2020", title: "First 10 Clients" },
+    { year: "2021", title: "Team Expansion" },
+    { year: "2022", title: "100+ Projects" },
+    { year: "2023", title: "Global Reach" },
+    { year: "2024", title: "Future Ready" }
   ];
 
   return (
     <div className="min-h-screen relative overflow-hidden">
+
       <div className="relative z-10">
         {/* Hero Section */}
-        <section className="pt-20 pb-16 px-4 sm:px-8">
-          <div className="max-w-6xl mx-auto text-center">
+        <section className="pt-16 pb-12 px-4 sm:px-6">
+          <div className="max-w-7xl mx-auto text-center">
             <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-              <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full mb-8 shadow-lg shadow-purple-500/30">
-                <Rocket className="w-10 h-10 text-white" />
+              <div className="inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full mb-6 shadow-lg shadow-purple-500/30">
+                <Rocket className="w-8 h-8 sm:w-10 sm:h-10 text-white" />
               </div>
 
-              <h1 className="text-5xl sm:text-7xl font-bold text-white mb-6">
+              <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold text-white mb-4">
                 About <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-purple-400 bg-clip-text text-transparent">KodxMedia</span>
               </h1>
 
-              <p className="text-xl sm:text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed mb-12">
-                We're a passionate team of digital innovators, creating exceptional web experiences
-                that drive business growth and user engagement.
+              <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto mb-12 px-4">
+                Digital innovators crafting experiences that matter
               </p>
 
               {/* Stats */}
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-8 mt-16">
+              <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mt-12 max-w-5xl mx-auto">
                 {stats.map((stat, index) => (
                   <div
                     key={index}
-                    className={`transition-all duration-1000 delay-${index * 200} ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-                      }`}
+                    className={`transition-all duration-1000 delay-${index * 100} ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}
                   >
-                    <div className="text-center">
-                      <div className="inline-flex items-center justify-center w-16 h-16 bg-white/10 rounded-full mb-4 backdrop-blur-sm border border-white/20">
-                        <div className="text-purple-400">
-                          {stat.icon}
-                        </div>
+                    <div className="backdrop-blur-xl bg-white/5 border border-white/10 rounded-2xl p-4 sm:p-6 hover:bg-white/10 hover:border-purple-500/30 transition-all duration-300 group">
+                      <div className="text-purple-400 group-hover:scale-110 transition-transform duration-300 mb-3">
+                        {stat.icon}
                       </div>
-                      <div className="text-3xl sm:text-4xl font-bold text-white mb-2">
+                      <div className="text-2xl sm:text-3xl font-bold text-white mb-1">
                         {stat.number}
                       </div>
-                      <div className="text-gray-400 text-sm sm:text-base">
+                      <div className="text-gray-400 text-xs sm:text-sm">
                         {stat.label}
                       </div>
                     </div>
@@ -165,98 +110,70 @@ const About = () => {
           </div>
         </section>
 
-        {/* Mission Section */}
-        <section className="py-16 px-4 sm:px-8">
-          <div className="max-w-6xl mx-auto">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              <div className={`transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
-                <h2 className="text-4xl sm:text-5xl font-bold text-white mb-6">
-                  Our Mission
-                </h2>
-                <p className="text-lg text-gray-300 mb-8 leading-relaxed">
-                  To empower businesses with cutting-edge digital solutions that not only meet
-                  their current needs but also prepare them for future challenges. We believe in
-                  creating technology that makes a difference.
-                </p>
-                <div className="space-y-4">
-                  <div className="flex items-center gap-3">
-                    <CheckCircle className="w-6 h-6 text-green-400 flex-shrink-0" />
-                    <span className="text-gray-300">Innovative web solutions</span>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <CheckCircle className="w-6 h-6 text-green-400 flex-shrink-0" />
-                    <span className="text-gray-300">User-centered design approach</span>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <CheckCircle className="w-6 h-6 text-green-400 flex-shrink-0" />
-                    <span className="text-gray-300">Scalable and maintainable code</span>
-                  </div>
-                </div>
+        {/* What We Stand For - Icon Grid */}
+        <section className="py-12 px-4 sm:px-6">
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center mb-10">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-3">
+                What We Stand For
+              </h2>
+            </div>
+
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+              <div className="backdrop-blur-xl bg-white/5 border border-white/10 rounded-2xl p-6 hover:bg-white/10 hover:border-purple-500/30 transition-all duration-300 group text-center">
+                <Target className="w-10 h-10 sm:w-12 sm:h-12 text-purple-400 mx-auto mb-3 group-hover:scale-110 transition-transform" />
+                <h3 className="text-base sm:text-lg font-bold text-white mb-2">Innovation First</h3>
+                <p className="text-xs sm:text-sm text-gray-400">Latest tech & trends</p>
               </div>
-              <div className={`transition-all duration-1000 delay-500 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}>
-                <div className="backdrop-blur-xl bg-white/5 border border-white/20 rounded-3xl p-8 shadow-2xl">
-                  <div className="text-center">
-                    <Lightbulb className="w-16 h-16 text-yellow-400 mx-auto mb-6" />
-                    <h3 className="text-2xl font-bold text-white mb-4">Why Choose Us?</h3>
-                    <p className="text-gray-300 mb-6">
-                      We combine creativity with technical expertise to deliver
-                      solutions that exceed expectations.
-                    </p>
-                    <div className="grid grid-cols-2 gap-4 text-sm">
-                      <div className="text-center">
-                        <div className="text-2xl font-bold text-purple-400">5+</div>
-                        <div className="text-gray-400">Years Experience</div>
-                      </div>
-                      <div className="text-center">
-                        <div className="text-2xl font-bold text-pink-400">24/7</div>
-                        <div className="text-gray-400">Support</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+
+              <div className="backdrop-blur-xl bg-white/5 border border-white/10 rounded-2xl p-6 hover:bg-white/10 hover:border-pink-500/30 transition-all duration-300 group text-center">
+                <Heart className="w-10 h-10 sm:w-12 sm:h-12 text-pink-400 mx-auto mb-3 group-hover:scale-110 transition-transform" />
+                <h3 className="text-base sm:text-lg font-bold text-white mb-2">Client-Centric</h3>
+                <p className="text-xs sm:text-sm text-gray-400">Your success matters</p>
+              </div>
+
+              <div className="backdrop-blur-xl bg-white/5 border border-white/10 rounded-2xl p-6 hover:bg-white/10 hover:border-green-500/30 transition-all duration-300 group text-center">
+                <Shield className="w-10 h-10 sm:w-12 sm:h-12 text-green-400 mx-auto mb-3 group-hover:scale-110 transition-transform" />
+                <h3 className="text-base sm:text-lg font-bold text-white mb-2">Quality Assured</h3>
+                <p className="text-xs sm:text-sm text-gray-400">Excellence guaranteed</p>
+              </div>
+
+              <div className="backdrop-blur-xl bg-white/5 border border-white/10 rounded-2xl p-6 hover:bg-white/10 hover:border-yellow-500/30 transition-all duration-300 group text-center">
+                <Clock className="w-10 h-10 sm:w-12 sm:h-12 text-yellow-400 mx-auto mb-3 group-hover:scale-110 transition-transform" />
+                <h3 className="text-base sm:text-lg font-bold text-white mb-2">On Time</h3>
+                <p className="text-xs sm:text-sm text-gray-400">Deadlines respected</p>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Services Section */}
-        <section className="py-16 px-4 sm:px-8">
-          <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl sm:text-5xl font-bold text-white mb-6">
+        {/* Services Section - More Visual */}
+        <section className="py-12 px-4 sm:px-6">
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center mb-10">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-3">
                 What We Do
               </h2>
-              <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-                We specialize in creating digital solutions that drive business growth
-                and deliver exceptional user experiences.
-              </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
               {services.map((service, index) => (
                 <div
                   key={index}
-                  className={`transition-all duration-1000 delay-${index * 200} ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-                    }`}
+                  className="backdrop-blur-xl bg-white/5 border border-white/10 rounded-2xl p-6 hover:bg-white/10 hover:border-purple-500/30 transition-all duration-300 group"
                 >
-                  <div className="backdrop-blur-xl bg-white/5 border border-white/20 rounded-2xl p-6 h-full hover:bg-white/10 transition-all duration-300 group">
-                    <div className="text-purple-400 mb-4 group-hover:scale-110 transition-transform duration-300">
-                      {service.icon}
-                    </div>
-                    <h3 className="text-xl font-bold text-white mb-3">
-                      {service.title}
-                    </h3>
-                    <p className="text-gray-300 mb-4 text-sm">
-                      {service.description}
-                    </p>
-                    <ul className="space-y-2">
-                      {service.features.map((feature, idx) => (
-                        <li key={idx} className="flex items-center gap-2 text-sm text-gray-400">
-                          <div className="w-1.5 h-1.5 bg-purple-400 rounded-full"></div>
-                          {feature}
-                        </li>
-                      ))}
-                    </ul>
+                  <div className="text-purple-400 mb-4 group-hover:scale-110 transition-transform duration-300">
+                    {service.icon}
+                  </div>
+                  <h3 className="text-lg sm:text-xl font-bold text-white mb-2">
+                    {service.title}
+                  </h3>
+                  <div className="flex flex-wrap gap-2 mt-3">
+                    {service.features.map((feature, idx) => (
+                      <span key={idx} className="text-xs px-3 py-1 bg-purple-500/20 text-purple-300 rounded-full border border-purple-500/30">
+                        {feature}
+                      </span>
+                    ))}
                   </div>
                 </div>
               ))}
@@ -264,120 +181,58 @@ const About = () => {
           </div>
         </section>
 
-        {/* Values Section */}
-        <section className="py-16 px-4 sm:px-8">
-          <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl sm:text-5xl font-bold text-white mb-6">
-                Our Values
-              </h2>
-              <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-                These core values guide everything we do and shape our relationships with clients.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {values.map((value, index) => (
-                <div
-                  key={index}
-                  className={`transition-all duration-1000 delay-${index * 200} ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-                    }`}
-                >
-                  <div className="text-center group">
-                    <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-full mb-6 group-hover:scale-110 transition-transform duration-300">
-                      <div className="text-purple-400">
-                        {value.icon}
-                      </div>
-                    </div>
-                    <h3 className="text-xl font-bold text-white mb-3">
-                      {value.title}
-                    </h3>
-                    <p className="text-gray-300 text-sm leading-relaxed">
-                      {value.description}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Timeline Section */}
-        <section className="py-16 px-4 sm:px-8">
-          <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl sm:text-5xl font-bold text-white mb-6">
+        {/* Journey Timeline - Simplified */}
+        <section className="py-12 px-4 sm:px-6">
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center mb-10">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-3">
                 Our Journey
               </h2>
-              <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-                From humble beginnings to becoming a trusted digital partner for businesses worldwide.
-              </p>
             </div>
 
-            <div className="relative">
-              {/* Timeline Line */}
-              <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-purple-500 to-pink-500"></div>
-
-              <div className="space-y-12">
-                {timeline.map((item, index) => (
-                  <div
-                    key={index}
-                    className={`transition-all duration-1000 delay-${index * 200} ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-                      }`}
-                  >
-                    <div className={`flex items-center ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'}`}>
-                      <div className="w-1/2 px-8">
-                        <div className={`backdrop-blur-xl bg-white/5 border border-white/20 rounded-2xl p-6 ${index % 2 === 0 ? 'text-right' : 'text-left'
-                          }`}>
-                          <div className="text-2xl font-bold text-purple-400 mb-2">
-                            {item.year}
-                          </div>
-                          <h3 className="text-xl font-bold text-white mb-2">
-                            {item.title}
-                          </h3>
-                          <p className="text-gray-300 text-sm">
-                            {item.description}
-                          </p>
-                        </div>
-                      </div>
-
-                      {/* Timeline Dot */}
-                      <div className="relative z-10">
-                        <div className="w-4 h-4 bg-purple-500 rounded-full border-4 border-gray-900"></div>
-                      </div>
-
-                      <div className="w-1/2 px-8"></div>
-                    </div>
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 sm:gap-6">
+              {timeline.map((item, index) => (
+                <div
+                  key={index}
+                  className="backdrop-blur-xl bg-white/5 border border-white/10 rounded-2xl p-4 sm:p-6 hover:bg-white/10 hover:border-purple-500/30 transition-all duration-300 group text-center"
+                >
+                  <div className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent mb-2 group-hover:scale-110 transition-transform">
+                    {item.year}
                   </div>
-                ))}
-              </div>
+                  <h3 className="text-sm sm:text-base font-bold text-white mb-2">
+                    {item.title}
+                  </h3>
+                  <div className="w-8 h-1 bg-gradient-to-r from-purple-500 to-pink-500 mx-auto rounded-full"></div>
+                </div>
+              ))}
             </div>
           </div>
         </section>
 
-        {/* CTA Section */}
-        <section className="py-16 px-4 sm:px-8">
-          <div className="max-w-4xl mx-auto text-center">
-            <div className={`transition-all duration-1000 delay-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-              <div className="backdrop-blur-xl bg-white/5 border border-white/20 rounded-3xl p-12 shadow-2xl">
-                <TrendingUp className="w-16 h-16 text-purple-400 mx-auto mb-6" />
-                <h2 className="text-4xl sm:text-5xl font-bold text-white mb-6">
-                  Ready to Start Your Project?
-                </h2>
-                <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-                  Let's work together to bring your vision to life. We're here to help you
-                  succeed in the digital world.
-                </p>
-                <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <button className="group bg-gradient-to-r from-purple-600 to-pink-600 text-white px-8 py-4 rounded-xl font-medium hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300 flex items-center justify-center gap-2">
-                    Get Started
-                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
-                  </button>
-                  <button className="group border border-white/20 text-white px-8 py-4 rounded-xl font-medium hover:bg-white/10 transition-all duration-300 flex items-center justify-center gap-2">
-                    Learn More
-                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
-                  </button>
-                </div>
+        {/* CTA Section - Simplified */}
+        <section className="py-12 px-4 sm:px-6">
+          <div className="max-w-4xl mx-auto">
+            <div className="backdrop-blur-xl bg-gradient-to-r from-purple-500/10 to-pink-500/10 border border-white/10 rounded-3xl p-8 sm:p-12 text-center">
+              <TrendingUp className="w-12 h-12 sm:w-16 sm:h-16 text-purple-400 mx-auto mb-4" />
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-3">
+                Ready to Start?
+              </h2>
+              <p className="text-base sm:text-lg text-gray-300 mb-6 max-w-2xl mx-auto">
+                Let's bring your vision to life together
+              </p>
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
+                <Link
+                  href="/contact"
+                  className="group bg-gradient-to-r from-purple-600 to-pink-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-medium hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300 flex items-center justify-center gap-2">
+                  Get Started
+                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
+                </Link>
+                <Link
+                  href="/projects"
+                  className="group border border-white/20 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-medium hover:bg-white/10 transition-all duration-300 flex items-center justify-center gap-2">
+                  View Projects
+                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
+                </Link>
               </div>
             </div>
           </div>

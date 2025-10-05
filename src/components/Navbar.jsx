@@ -19,10 +19,10 @@ export default function Navbar() {
     }, []);
 
     return (
-        <header className="w-full flex justify-center pt-6 sticky top-0 z-50">
+        <header className="w-full flex justify-center pt-2 sticky top-0 z-50">
             <nav
                 className={`flex items-center justify-between 
-                    w-[90%] md:w-[80%] px-8 rounded-full border 
+                    w-[90%] md:w-[80%] px-7 rounded-full border 
                     backdrop-blur-xl transition-all duration-300
                     ${isScrolled
                         ? "border-white/20 bg-black/40 shadow-[0_0_30px_rgba(0,0,0,0.3)]"
