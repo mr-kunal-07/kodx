@@ -1,83 +1,84 @@
-"use client";
-import Image from "next/image";
+import React, { useCallback, useEffect, useState } from 'react';
+import useEmblaCarousel from 'embla-carousel-react';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 
-export default function HeroImages() {
-    const images = {
-        left: "/glass2.png",
-        center: "/glass1.png",
-        right: "/glass3.png",
-    };
+export default function ScaleCarousel() {
+    const [emblaRef, emblaApi] = useEmblaCarousel({
+        loop: true,
+        align: 'center',
+        skipSnaps: false,
+    });
+    const [selectedIndex, setSelectedIndex] = useState(0);
+
+    const images = [
+        { id: 1, img: './Phone/1.png', },
+        { id: 2, img: './Phone/2.png', },
+        { id: 3, img: './Phone/3.png', },
+        { id: 4, img: './Phone/4.png', },
+    ];
+
+    const onSelect = useCallback(() => {
+        if (!emblaApi) return;
+        setSelectedIndex(emblaApi.selectedScrollSnap());
+    }, [emblaApi]);
+
+    useEffect(() => {
+        if (!emblaApi) return;
+        onSelect();
+        emblaApi.on('select', onSelect);
+        return () => emblaApi.off('select', onSelect);
+    }, [emblaApi, onSelect]);
+
+    const scrollTo = useCallback((index) => emblaApi?.scrollTo(index), [emblaApi]);
 
     return (
-        <>
-            <style>
-                {`
-          @keyframes pulseScale {
-            0%, 100% {
-              transform: scale(1);
-            }
-            50% {
-              transform: scale(1.05);
-            }
-          }
-        `}
-            </style>
+        <div className="relative w-full max-w-6xl mx-auto lg:px-1">
 
-            <div className="relative w-full max-w-[1500px] mx-auto flex justify-center items-center h-[250px] sm:h-[350px] md:h-[500px] lg:h-[600px] px-4">
-                {/* Left Image */}
-                <div
-                    className="hidden md:block absolute top-1/2 left-0 -translate-y-1/2 rounded-lg shadow-lg w-[30vw] max-w-[450px] aspect-[3/2]"
-                    style={{
-                        animation: "pulseScale 6s ease-in-out infinite",
-                        animationDelay: "0s",
-                    }}
-                >
-                    <Image
-                        src={images.left}
-                        alt="Left Image"
-                        fill
-                        sizes="(min-width: 768px) 30vw"
-                        className="rounded-lg object-cover"
-                        priority
-                    />
-                </div>
+            {/* Carousel */}
+            <div className="overflow-hidden" ref={emblaRef}>
+                <div className="flex">
+                    {images.map((item, index) => {
+                        const isActive = selectedIndex === index;
 
-                {/* Center Image */}
-                <div
-                    className="relative rounded-lg shadow-xl z-30 w-full max-w-[900px] sm:w-[70vw] md:w-[50vw] aspect-[16/10]"
-                    style={{
-                        animation: "pulseScale 6s ease-in-out infinite",
-                        animationDelay: "2s",
-                    }}
-                >
-                    <Image
-                        src={images.center}
-                        alt="Center Image"
-                        fill
-                        sizes="(max-width: 640px) 100vw, (min-width: 641px) 70vw"
-                        className="rounded-lg object-cover"
-                        priority
-                    />
-                </div>
-
-                {/* Right Image */}
-                <div
-                    className="hidden md:block absolute top-1/2 right-0 -translate-y-1/2 rounded-lg shadow-lg w-[30vw] max-w-[450px] aspect-[3/2]"
-                    style={{
-                        animation: "pulseScale 6s ease-in-out infinite",
-                        animationDelay: "4s",
-                    }}
-                >
-                    <Image
-                        src={images.right}
-                        alt="Right Image"
-                        fill
-                        sizes="(min-width: 768px) 30vw"
-                        className="rounded-lg object-cover"
-                        priority
-                    />
+                        return (
+                            <div
+                                key={item.id}
+                                className="flex-[0_0_60%] sm:flex-[0_0_50%] lg:flex-[0_0_37%] "
+                            >
+                                <div
+                                    className={`cursor-pointer transition-transform duration-300 ${isActive ? 'scale-105' : 'scale-90 opacity-60'
+                                        }`}
+                                    onClick={() => scrollTo(index)}
+                                >
+                                    <div className="aspect-[9/16] w-full max-w-xs mx-auto rounded-xl overflow-hidden">
+                                        <img
+                                            src={item.img}
+                                            alt={item.label}
+                                            className="w-full h-full object-contain"
+                                            loading="eager"
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+                        );
+                    })}
                 </div>
             </div>
-        </>
+
+            {/* Dots */}
+            <div className="flex justify-center gap-2">
+                {images.map((_, index) => (
+                    <button
+                        key={index}
+                        onClick={() => scrollTo(index)}
+                        className={`transition-all rounded-full ${selectedIndex === index
+                            ? 'w-6 h-2 bg-purple-400'
+                            : 'w-2 h-2 bg-white/30'
+                            }`}
+                        aria-label={`Slide ${index + 1}`}
+                    />
+                ))}
+            </div>
+        </div>
     );
 }

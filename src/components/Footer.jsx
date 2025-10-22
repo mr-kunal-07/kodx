@@ -56,7 +56,8 @@ const Footer = () => {
                                 </p>
                             </div>
 
-                            <ShineButton href="/contact" text="Start a project" showIcon={ArrowRight} />
+                            <ShineButton href="/contact" text="Start a project" rounded="xl" showIcon={ArrowRight} />
+           
                         </div>
                     </div>
                 )}

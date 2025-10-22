@@ -79,13 +79,14 @@ const Contact = () => {
                                 <Sparkles className="w-7 h-7 sm:w-8 sm:h-8 text-white" />
                             </div>
                             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white">
-                                Let's Create Something
-                                <span className="block bg-gradient-to-r from-purple-400 via-pink-400 to-purple-400 bg-clip-text text-transparent animate-gradient">
-                                    Amazing Together 🚀
+                                Let's Create Something <br />
+                                <span className="bg-gradient-to-r from-purple-400 via-blue-400 to-purple-400 bg-clip-text text-transparent">
+                                    Amazing Together
                                 </span>
+                                🚀
                             </h2>
                             <p className="text-gray-300/90 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
-                                Share your project details and I'll respond within <span className="font-semibold text-purple-300">24 hours</span>
+                                Share your project details and I'll respond within <span className="font-semibold text-purple-300">2-4 hours</span>
                             </p>
                         </div>
 

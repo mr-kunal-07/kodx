@@ -70,19 +70,23 @@ const About = () => {
 
       <div className="relative z-10">
         {/* Hero Section */}
-        <section className="pt-16 pb-12 px-4 sm:px-6">
+        <section className="pt-7 pb-12 px-4 sm:px-6">
           <div className="max-w-7xl mx-auto text-center">
             <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-              <div className="inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full mb-6 shadow-lg shadow-purple-500/30">
+              <div className="inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-r from-purple-400 via-blue-400 to-purple-400 rounded-full mb-6 shadow-lg shadow-purple-500/30">
                 <Rocket className="w-8 h-8 sm:w-10 sm:h-10 text-white" />
               </div>
 
-              <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold text-white mb-4">
-                About <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-purple-400 bg-clip-text text-transparent">KodxMedia</span>
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
+                About <span className="bg-gradient-to-r from-purple-400 via-blue-400 to-purple-400 bg-clip-text text-transparent">Kodx</span>
               </h1>
 
               <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto mb-12 px-4">
-                Digital innovators crafting experiences that matter
+                India's No. 1{" "}
+                <span className="bg-gradient-to-r from-purple-400 via-blue-400 to-purple-400 bg-clip-text text-transparent">
+                  Application Development
+                </span>{" "}
+                Company.
               </p>
 
               {/* Stats */}

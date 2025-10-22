@@ -10,11 +10,11 @@ const ShootingStar = () => {
     useEffect(() => {
         const updateSize = () => {
             if (window.innerWidth < 640) {
-                setSize(35); // smaller stars on mobile
+                setSize(40); // smaller stars on mobile
             } else if (window.innerWidth < 1024) {
-                setSize(50); // medium size
+                setSize(60); // medium size
             } else {
-                setSize(67); // full size
+                setSize(70); // full size
             }
         };
 

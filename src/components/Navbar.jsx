@@ -4,6 +4,7 @@ import Image from "next/image";
 import { ChevronRight } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+import ShineButton from "./ShineButton";
 
 export default function Navbar() {
     const pathname = usePathname();
@@ -67,8 +68,8 @@ export default function Navbar() {
                     <Link
                         href="/contact"
                         className="group relative flex items-center justify-center gap-1 text-white 
-                            p-2 rounded-full border border-zinc-700
-                            hover:shadow-[0_0_20px_rgba(168,85,247,0.8)] hover:ring-1 hover:ring-zinc-600
+                            p-2 rounded-xl border border-purple-700
+                            hover:shadow-[0_0_20px_rgba(168,85,247,0.8)] hover:ring-1 hover:ring-purple-600
                             duration-300 overflow-hidden w-32"
                     >
                         <div className="h-[100px] w-10 bg-gradient-to-r from-white/10 via-white/50 absolute -left-10 -rotate-45 blur-sm 

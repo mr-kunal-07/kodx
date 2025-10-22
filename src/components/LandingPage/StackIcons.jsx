@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { ChevronRight, ExternalLink } from "lucide-react";
+import ShineButton from "../ShineButton";
 
 const stackIcons = [
     { name: "React", src: "/icons/React.svg" },
@@ -49,15 +50,11 @@ const socials = [
 
 export default function StackIcons() {
     return (
-        <section className="w-full py-16 px-4 sm:px-8">
+        <section className="w-full py-5 px-4 sm:px-8">
             <div className="max-w-7xl mx-auto">
 
                 {/* Header */}
                 <div className="text-center mb-12">
-                    <div className="inline-block px-3 py-1 rounded-full bg-purple-500/10 border border-purple-400/20 text-purple-300 text-xs font-medium mb-4">
-                        Tech Stack
-                    </div>
-
                     <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
                         Technologies We{" "}
                         <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
@@ -91,16 +88,7 @@ export default function StackIcons() {
 
                 {/* See All Button */}
                 <div className="flex justify-center mb-16">
-                    <a
-                        href="/stack"
-                        className="flex items-center gap-2 text-white px-6 py-3 rounded-full 
-                        border border-purple-400/50 bg-purple-500/20 
-                        hover:shadow-lg hover:shadow-purple-500/30 hover:scale-105 
-                        transition-all duration-300"
-                    >
-                        <span className="font-medium">See All Technologies</span>
-                        <ChevronRight className="w-5 h-5" />
-                    </a>
+                <ShineButton href="/stack" text="See All Technologies" rounded="xl" icon={ChevronRight} />
                 </div>
 
                 {/* Social Section */}

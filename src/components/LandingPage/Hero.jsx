@@ -6,28 +6,35 @@ import Link from "next/link";
 
 const Hero = () => {
     return (
-        <section className="min-h-screen w-full flex flex-col justify-center items-center px-6 sm:px-8 lg:px-12 text-center gap-8 ">
-            {/* Text Content */}
-            <div className="max-w-6xl my-20 capitalize">
-                <h1 className="text-4xl sm:text-4x md:text-5xl lg:text-6xl font-bold leading-tight">
-                    We <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent uppercase ">design</span>  & <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent uppercase">build</span> websites that grow your <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent uppercase">Business</span>.
-                    <br className="hidden sm:block" />
-                </h1>
+        <section className="relative min-h-[85dvh] w-full flex items-center px-4 sm:px-6 lg:px-12 xl:px-16 overflow-hidden">
+            <div className="w-full max-w-7xl mx-auto">
+                <div className="flex flex-col-reverse lg:flex-row items-center gap-6 py-4 lg:py-0">
 
-                <p className="mt-4 text-sm sm:text-base md:text-lg text-white/90 leading-relaxed max-w-2xl pb-4 mx-auto">
+                    {/* Left Text Section */}
+                    <div className="flex-1 flex flex-col items-center lg:items-start text-center lg:text-left  max-w-2xl lg:max-w-none">
+                        <h1 className="text-4xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.15] tracking-tight">
+                            India's No. 1{" "}
+                            <span className="bg-gradient-to-r from-purple-400 via-blue-400 to-purple-400 bg-clip-text text-transparent">
+                                Application Development
+                            </span>{" "}
+                            Company.
+                        </h1>
 
-                    Custom, fast and SEO-friendly websites — so you can focus on growing sales.
-                </p>
+                        <p className="text-[15px] sm:text-lg text-white/80 pt-3 leading-relaxed max-w-xl">
+                            We build Coustom apps that help your business grow.
+                        </p>
 
-                <Link href="/services" className="mt-8 flex justify-center">
-                    <FireButton Name="Explore Services" />
-                </Link>
+                        <Link href="/services" className="pt-7 lg:ml-10">
+                            <FireButton Name="Click to See More" />
+                        </Link>
+                    </div>
+
+                    {/* Right Image Section */}
+                    <div className="flex-1 flex justify-center items-center w-full">
+                        <HeroImages />
+                    </div>
+                </div>
             </div>
-
-            {/* Image Content */}
-            <HeroImages />
-
-
         </section>
     );
 };

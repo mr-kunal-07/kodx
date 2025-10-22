@@ -126,7 +126,7 @@ function ProjectCard({ project, onClick }) {
           <img
             src={project.image}
             alt={project.title}
-            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+            className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
             loading="lazy"
           />
         )}
@@ -208,7 +208,7 @@ function CaseStudyPage({ project, onBack }) {
           <img
             src={project.image}
             alt={project.title}
-            className="w-full h-full object-cover"
+            className="w-full h-full object-contain"
           />
         </div>
 
@@ -274,10 +274,10 @@ export default function Page() {
 
   return (
     <div className="min-h-screen ">
-      <section className="w-full py-12 sm:py-16 px-4 sm:px-8">
+      <section className="w-full py-8 sm:py-10 px-4 sm:px-8">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
-            <h1 className="text-3xl sm:text-5xl font-bold text-white mb-4">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
               Our{" "}
               <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
                 Projects
