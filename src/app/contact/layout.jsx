@@ -1,4 +1,4 @@
-// app/contact/layout.jsx
+
 const siteBaseUrl = "https://kodxmedia.site";
 const pageUrl = `${siteBaseUrl}/contact`;
 const pageImage = `${siteBaseUrl}/default-og-image.jpg`;

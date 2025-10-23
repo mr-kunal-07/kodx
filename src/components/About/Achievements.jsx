@@ -1,5 +1,3 @@
-"use client";
-
 export default function Achievements() {
     const stats = [
         { number: "150+", label: "Projects Delivered" },

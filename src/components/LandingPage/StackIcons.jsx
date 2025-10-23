@@ -1,6 +1,4 @@
-"use client";
 
-import { useState } from "react";
 import { ChevronRight, ExternalLink } from "lucide-react";
 import ShineButton from "../ShineButton";
 

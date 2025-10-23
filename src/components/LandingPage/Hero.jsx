@@ -1,4 +1,3 @@
-"use client";
 import FireButton from "@/components/FireButton";
 import React from "react";
 import HeroImages from "./HeroImages";

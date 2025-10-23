@@ -1,4 +1,3 @@
-"use client";
 import { motion } from "framer-motion";
 import React, { useState } from "react";
 import { Geist } from 'next/font/google'
