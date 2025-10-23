@@ -1,3 +1,4 @@
+"use client";
 
 import React, { useState, useCallback } from "react";
 import { ChevronDown, Send, Loader2, Sparkles } from "lucide-react";
